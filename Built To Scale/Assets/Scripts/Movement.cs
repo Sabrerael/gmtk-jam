@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour {
 
     private Vector2 movementValues = new Vector2();
     private Rigidbody2D playerRigidbody;
+    
+    private bool isMoving = false;
 
     private void Start() {
         playerRigidbody = GetComponent<Rigidbody2D>();
@@ -15,7 +17,14 @@ public class Movement : MonoBehaviour {
     private void Update() {
         if (movementValues.magnitude > Mathf.Epsilon) {
             NormalMovement();
+            isMoving = true;
+        } else {
+            isMoving = false;
         }
+    }
+
+    public bool GetIsMoving() {
+        return isMoving;
     }
 
     public void NormalMovement() {
