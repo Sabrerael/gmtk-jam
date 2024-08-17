@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 2249771146389722552}
   - component: {fileID: 5073458293085570865}
   - component: {fileID: 8376485938480936451}
+  - component: {fileID: 8110350484242259070}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -250,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce4a0d289f1b52408b66cb3c620e7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blankPizza: {fileID: 6491592474400919478, guid: 3587b0e5e3eb7244f88973e24ab2f484, type: 3}
 --- !u!114 &5073458293085570865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,3 +278,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheesePrefab: {fileID: 3899080398051660056, guid: e7f70c084340f5e49ad19a8a8ebf051a, type: 3}
+--- !u!114 &8110350484242259070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735003818491389496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a044fda5510271641a10f9c1f482a52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toppingPrefab: {fileID: 6689172391913938208, guid: 28090ab12dde3cd45bf8658c6e121e00, type: 3}

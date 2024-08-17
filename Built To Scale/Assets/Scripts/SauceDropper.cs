@@ -17,7 +17,6 @@ public class SauceDropper : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D other) {
         if (isDroppingSauce && other.CompareTag("Pizza") && movement.GetIsMoving()) {
             Instantiate(saucePrefab, transform.position, Quaternion.identity, currentPizza.GetSauceLayerTransform());
-            Debug.Log("Sauce");
         }
     }
 
@@ -25,8 +24,8 @@ public class SauceDropper : MonoBehaviour {
         currentPizza = pizza;
     }
 
-    
     public void ToggleDroppingSauce() {
         isDroppingSauce = !isDroppingSauce;
+        Debug.Log("Toggled Sauce to " + isDroppingSauce);
     }
 }

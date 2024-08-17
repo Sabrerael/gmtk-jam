@@ -17,7 +17,6 @@ public class CheeseDropper : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D other) {
         if (isDroppingCheese && other.CompareTag("Pizza") && movement.GetIsMoving() ) {
             Instantiate(cheesePrefab, transform.position, Quaternion.identity, currentPizza.GetCheeseLayerTransform());
-            Debug.Log("Cheese");
         }
     }
 
@@ -27,5 +26,6 @@ public class CheeseDropper : MonoBehaviour {
 
     public void ToggleDroppingCheese() {
         isDroppingCheese = !isDroppingCheese;
+        Debug.Log("Toggled Cheese to " + isDroppingCheese);
     }
 }
