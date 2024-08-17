@@ -4,20 +4,14 @@ using UnityEngine;
 
 public class Indicator : MonoBehaviour {
     [SerializeField] PizzaMode indicatorType;
+    [SerializeField] Pizza pizza;
 
     private bool isTouched = false;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log(indicatorType.ToString());
-        Debug.Log("tag is " + other.tag);
         if (!isTouched && other.CompareTag(indicatorType.ToString())) {
             isTouched = true;
-            Debug.Log("indicator has been triggered");
+            pizza.UpdateIndicatorCount(indicatorType);
         }
     }
-
-    public bool GetIsTouched() {
-        return isTouched;
-    }
-
 }
