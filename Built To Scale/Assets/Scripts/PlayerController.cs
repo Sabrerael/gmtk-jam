@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour {
     private FinishPizzaButton finishPizzaButton = null;
     private Pizza pizza;
 
-    private int money = 0;
-
     private void Start() {
         movement = GetComponent<Movement>();
         sauceDropper = GetComponent<SauceDropper>();
@@ -46,8 +44,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (finishPizzaButton != null && pizza != null && pizza.GetToppingsDone()) {
-            money += 10;
-            Debug.Log("You've made $" + money);
+            GameManager.instance.UpdateMoney(10);
             toppingDropper.ToggleDroppingToppings();
             Destroy(pizza.gameObject);
             Instantiate(blankPizza, new Vector3(0,1,0), Quaternion.identity);
