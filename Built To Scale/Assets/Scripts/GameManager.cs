@@ -82,6 +82,10 @@ public class GameManager : MonoBehaviour {
         return money;
     }
 
+    public float getTimer(){
+        return dayTimer;
+    }
+
     public void SetFasterWalkUnlock(bool value) {
         fasterWalkUpgradeUnlocked = value;
     }
