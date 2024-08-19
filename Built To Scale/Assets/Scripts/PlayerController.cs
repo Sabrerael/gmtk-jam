@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField] Pizza blankPizza;
+    [SerializeField] int moneyPerPizza = 100;
 
     private Movement movement;
     private SauceDropper sauceDropper;
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour {
         cheeseDropper = GetComponent<CheeseDropper>();
         toppingDropper = GetComponent<ToppingDropper>();
         pizzaMode = PizzaMode.Sauce;
+
+        GameManager.instance.ResetUI();
+        GameManager.instance.SetRunTimer(true);
     }
 
     private void OnMove(InputValue value) {      
@@ -44,10 +48,11 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (finishPizzaButton != null && pizza != null && pizza.GetToppingsDone()) {
-            GameManager.instance.UpdateMoney(10);
+            GameManager.instance.UpdateMoney(moneyPerPizza);
             toppingDropper.ToggleDroppingToppings();
             Destroy(pizza.gameObject);
             Instantiate(blankPizza, new Vector3(0,1,0), Quaternion.identity);
+            GameManager.instance.UpdateTutorialText(PizzaMode.Sauce, 0);
         }
     }
 
@@ -67,5 +72,6 @@ public class PlayerController : MonoBehaviour {
 public enum PizzaMode {
     Sauce,
     Cheese,
-    Toppings
+    Toppings,
+    Done
 }
