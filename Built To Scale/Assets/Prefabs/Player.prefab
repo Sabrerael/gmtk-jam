@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
+  fasterMovementSpeed: 8
 --- !u!114 &2249771146389722552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blankPizza: {fileID: 6491592474400919478, guid: 3587b0e5e3eb7244f88973e24ab2f484, type: 3}
+  pizzaMode: 0
 --- !u!114 &5073458293085570865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saucePrefab: {fileID: 4869963732171046902, guid: ae3b4478d7bc7614ea048cf6c46817f2, type: 3}
+  largerSaucePrefab: {fileID: 4435840958809127269, guid: 1efd284fe53797b49a95e0794768b4c3, type: 3}
 --- !u!114 &8376485938480936451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheesePrefab: {fileID: 3899080398051660056, guid: e7f70c084340f5e49ad19a8a8ebf051a, type: 3}
+  largerCheesePrefab: {fileID: 6326520466008934976, guid: b7fc5b2612d81ff458b39c01a019124d, type: 3}
 --- !u!114 &8110350484242259070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,3 +295,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toppingPrefab: {fileID: 6689172391913938208, guid: 28090ab12dde3cd45bf8658c6e121e00, type: 3}
+  largerToppingPrefab: {fileID: 2124210713335954482, guid: abc5670b6e7705f40acd14ba2db3c221, type: 3}
