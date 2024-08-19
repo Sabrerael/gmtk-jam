@@ -50,29 +50,29 @@ public class Pizza : MonoBehaviour {
     public void UpdateIndicatorCount(PizzaMode pizzaMode) {
         if (pizzaMode == PizzaMode.Sauce) {
             sauceIndicatorCount++;
-            if (sauceIndicatorCount == 32) {
+            if (sauceIndicatorCount == 56) {
                 sauceDone = true;
                 GameManager.instance.UpdateTutorialText(PizzaMode.Cheese, 0);
             } else {
-                GameManager.instance.UpdateTutorialText(PizzaMode.Sauce, Mathf.CeilToInt(((float) sauceIndicatorCount / 32.0f) * 100));
+                GameManager.instance.UpdateTutorialText(PizzaMode.Sauce, Mathf.CeilToInt(((float) sauceIndicatorCount / 56.0f) * 100));
             }
         } else if (pizzaMode == PizzaMode.Cheese) {
             cheeseIndicatorCount++;
             Debug.Log("Cheese Indicator count: " + cheeseIndicatorCount);
-            if (cheeseIndicatorCount == 32) {
+            if (cheeseIndicatorCount == 56) {
                 cheeseDone = true;
                 GameManager.instance.UpdateTutorialText(PizzaMode.Toppings, 0);
             } else {
-                GameManager.instance.UpdateTutorialText(PizzaMode.Cheese, Mathf.CeilToInt(((float) cheeseIndicatorCount / 32.0f) * 100));
+                GameManager.instance.UpdateTutorialText(PizzaMode.Cheese, Mathf.CeilToInt(((float) cheeseIndicatorCount / 56.0f) * 100));
             }
         } else if (pizzaMode == PizzaMode.Toppings) {
             toppingsIndicatorCount++;
             Debug.Log("Toppings Indicator count: " + toppingsIndicatorCount);
-            if (toppingsIndicatorCount == 32) {
+            if (toppingsIndicatorCount == 56) {
                 toppingsDone = true;
                 GameManager.instance.UpdateTutorialText(PizzaMode.Done, 0);
             } else {
-                GameManager.instance.UpdateTutorialText(PizzaMode.Toppings, Mathf.CeilToInt(((float) toppingsIndicatorCount / 32.0f) * 100));
+                GameManager.instance.UpdateTutorialText(PizzaMode.Toppings, Mathf.CeilToInt(((float) toppingsIndicatorCount / 56.0f) * 100));
             }
         }
     }

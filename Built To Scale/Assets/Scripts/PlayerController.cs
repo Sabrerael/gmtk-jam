@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour {
     [SerializeField] Pizza blankPizza;
     [SerializeField] int moneyPerPizza = 100;
+    [SerializeField] GameObject brush;
+    [SerializeField] GameObject cheeseBag;
+    [SerializeField] GameObject pepperoniBag;
 
     private Movement movement;
     private SauceDropper sauceDropper;
@@ -37,13 +40,19 @@ public class PlayerController : MonoBehaviour {
                 pizzaMode = PizzaMode.Toppings;
                 cheeseDropper.ToggleDroppingCheese();
                 toppingDropper.ToggleDroppingToppings();
+                cheeseBag.SetActive(false);
+                pepperoniBag.SetActive(true);
             } else if (pizza.GetSauceDone() && currentIngredientSource.GetIngredientType() == PizzaMode.Cheese) {
                 pizzaMode = PizzaMode.Cheese;
                 sauceDropper.ToggleDroppingSauce();
                 cheeseDropper.ToggleDroppingCheese();
+                brush.SetActive(false);
+                cheeseBag.SetActive(true);
             } else if (!pizza.GetSauceDone() && currentIngredientSource.GetIngredientType() == PizzaMode.Sauce) {
                 pizzaMode = PizzaMode.Sauce;
                 sauceDropper.ToggleDroppingSauce();
+                pepperoniBag.SetActive(false);
+                brush.SetActive(true);
             }
         }
 
@@ -51,7 +60,7 @@ public class PlayerController : MonoBehaviour {
             GameManager.instance.UpdateMoney(moneyPerPizza);
             toppingDropper.ToggleDroppingToppings();
             Destroy(pizza.gameObject);
-            Instantiate(blankPizza, new Vector3(0,1,0), Quaternion.identity);
+            Instantiate(blankPizza, new Vector3(0,0.85f,0), Quaternion.identity);
             GameManager.instance.UpdateTutorialText(PizzaMode.Sauce, 0);
         }
     }
