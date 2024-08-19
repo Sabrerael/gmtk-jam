@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] private int money = 0;
     private float dayTimer = 0;
-    private int dayNumber = 1;
+    private int dayNumber = 0;
     private bool runTimer = false;
 
     private bool fasterWalkUpgradeUnlocked = false;
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
                 Debug.Log("Day Over");
                 dayTimer = 0;
                 dayNumber++;
-                if (dayNumber == 5) {
+                if (dayNumber >= 5) {
                     LoadWinScreen();
                 } else {
                     LoadUpgradeScreen();
@@ -119,7 +119,8 @@ public class GameManager : MonoBehaviour {
 
     public void ResetGameState() {
         money = 0;
-        dayTimer = 1;
+        dayTimer = 0;
+        dayNumber = 0;
     }
 
     public void UpdateMoney(int value) {
