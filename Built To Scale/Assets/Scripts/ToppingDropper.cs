@@ -6,6 +6,7 @@ public class ToppingDropper : MonoBehaviour {
     [SerializeField] GameObject toppingPrefab;
     [SerializeField] GameObject largerToppingPrefab;
     [SerializeField] float timeBetweenDrops = 0.1f;
+    [SerializeField] AudioClip dropSound;
 
     private Movement movement;
     private Pizza currentPizza;
@@ -39,6 +40,7 @@ public class ToppingDropper : MonoBehaviour {
                 Instantiate(toppingPrefab, transform.position, Quaternion.identity, currentPizza.GetSauceLayerTransform());
             }
             canDropToppings = false;
+            AudioSource.PlayClipAtPoint(dropSound, transform.position);
         }
     }
 

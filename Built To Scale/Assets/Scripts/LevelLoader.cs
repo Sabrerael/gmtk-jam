@@ -4,23 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
+    [SerializeField] Animator crossfade;
+
     public void LoadMainMenu() {
-        Debug.Log("Loading Level");
-        SceneManager.LoadScene(0);
+        StartCoroutine(LoadLevel(0));
     }
 
     public void LoadGameScene() {
-        Debug.Log("Loading Level");
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadLevel(1));
     }
 
     public void LoadUpgradeScreen() {
-        Debug.Log("Loading Level");
-        SceneManager.LoadScene(2);
+        StartCoroutine(LoadLevel(2));
     }
 
     public void LoadWinScreen() {
-        Debug.Log("Loading Level");
-        SceneManager.LoadScene(3);
+        StartCoroutine(LoadLevel(3));
+    }
+
+    public IEnumerator LoadLevel(int index) {
+        crossfade.SetTrigger("Crossfade");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(index);
     }
 }

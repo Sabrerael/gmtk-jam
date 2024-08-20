@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] TextMeshProUGUI moneyTextField;
     [SerializeField] TextMeshProUGUI tutorialTextField;
+    [SerializeField] AudioClip endOfDayJingle;
 
     [SerializeField] private int money = 0;
     private float dayTimer = 0;

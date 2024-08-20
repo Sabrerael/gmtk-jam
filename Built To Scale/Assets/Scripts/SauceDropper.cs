@@ -6,6 +6,7 @@ public class SauceDropper : MonoBehaviour {
     [SerializeField] GameObject saucePrefab;
     [SerializeField] GameObject largerSaucePrefab;
     [SerializeField] float timeBetweenDrops = 0.1f;
+    [SerializeField] AudioClip dropSound;
 
     private Movement movement;
     private Pizza currentPizza;
@@ -39,6 +40,7 @@ public class SauceDropper : MonoBehaviour {
                 Instantiate(saucePrefab, transform.position, Quaternion.identity, currentPizza.GetSauceLayerTransform());
             }
             canDropSauce = false;
+            AudioSource.PlayClipAtPoint(dropSound, transform.position);
         }
     }
 

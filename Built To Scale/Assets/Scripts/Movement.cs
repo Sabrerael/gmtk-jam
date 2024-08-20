@@ -8,12 +8,14 @@ public class Movement : MonoBehaviour {
 
     private Vector2 movementValues = new Vector2();
     private Rigidbody2D playerRigidbody;
+    private Animator animator;
     
     private bool isMoving = false;
     private bool useFasterMovement = false;
 
     private void Start() {
         playerRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         useFasterMovement = GameManager.instance.GetFasterWalkUnlock();
     }
 
@@ -21,8 +23,10 @@ public class Movement : MonoBehaviour {
         if (movementValues.magnitude > Mathf.Epsilon) {
             NormalMovement();
             isMoving = true;
+            animator.SetBool("IsMoving", true);
         } else {
             isMoving = false;
+            animator.SetBool("IsMoving", false);
         }
     }
 

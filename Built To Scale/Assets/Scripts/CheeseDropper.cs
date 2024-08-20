@@ -6,6 +6,7 @@ public class CheeseDropper : MonoBehaviour {
     [SerializeField] GameObject cheesePrefab;
     [SerializeField] GameObject largerCheesePrefab;
     [SerializeField] float timeBetweenDrops = 0.1f;
+    [SerializeField] AudioClip dropSound;
 
     private Movement movement;
     private Pizza currentPizza;
@@ -39,6 +40,7 @@ public class CheeseDropper : MonoBehaviour {
                 Instantiate(cheesePrefab, transform.position, Quaternion.identity, currentPizza.GetCheeseLayerTransform());
             }
             canDropCheese = false;
+            AudioSource.PlayClipAtPoint(dropSound, transform.position);
         }
     }
 

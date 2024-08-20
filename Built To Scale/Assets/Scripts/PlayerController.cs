@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject brush;
     [SerializeField] GameObject cheeseBag;
     [SerializeField] GameObject pepperoniBag;
+    [SerializeField] AudioClip switchingSound;
+    [SerializeField] AudioClip buttonPush;
 
     private Movement movement;
     private SauceDropper sauceDropper;
     private CheeseDropper cheeseDropper;
     private ToppingDropper toppingDropper;
+    private Animator animator;
     [SerializeField] private PizzaMode pizzaMode;
 
     private IngredientSource currentIngredientSource = null;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour {
         sauceDropper = GetComponent<SauceDropper>();
         cheeseDropper = GetComponent<CheeseDropper>();
         toppingDropper = GetComponent<ToppingDropper>();
+        animator = GetComponent<Animator>();
         pizzaMode = PizzaMode.Sauce;
 
         GameManager.instance.ResetUI();
@@ -54,10 +58,12 @@ public class PlayerController : MonoBehaviour {
                 pepperoniBag.SetActive(false);
                 brush.SetActive(true);
             }
+            AudioSource.PlayClipAtPoint(switchingSound, transform.position);
         }
 
         if (finishPizzaButton != null && pizza != null && pizza.GetToppingsDone()) {
             GameManager.instance.UpdateMoney(moneyPerPizza);
+            AudioSource.PlayClipAtPoint(buttonPush, transform.position);
             toppingDropper.ToggleDroppingToppings();
             Destroy(pizza.gameObject);
             Instantiate(blankPizza, new Vector3(0,0.85f,0), Quaternion.identity);
