@@ -48,8 +48,8 @@ public class SauceDropper : MonoBehaviour {
         currentPizza = pizza;
     }
 
-    public void ToggleDroppingSauce() {
-        isDroppingSauce = !isDroppingSauce;
+    public void ToggleDroppingSauce(bool value) {
+        isDroppingSauce = value;
         Debug.Log("Toggled Sauce to " + isDroppingSauce);
     }
 }

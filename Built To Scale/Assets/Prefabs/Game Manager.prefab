@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyTextField: {fileID: 0}
   tutorialTextField: {fileID: 0}
-  endOfDayJingle: {fileID: 0}
+  endOfDayJingle: {fileID: 8300000, guid: ad959f0976516a542926fb564f356d3d, type: 3}
   money: 0
 --- !u!82 &6170314711167314421
 AudioSource:

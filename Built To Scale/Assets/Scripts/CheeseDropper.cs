@@ -48,8 +48,8 @@ public class CheeseDropper : MonoBehaviour {
         currentPizza = pizza;
     }
 
-    public void ToggleDroppingCheese() {
-        isDroppingCheese = !isDroppingCheese;
+    public void ToggleDroppingCheese(bool value) {
+        isDroppingCheese = value;
         Debug.Log("Toggled Cheese to " + isDroppingCheese);
     }
 }

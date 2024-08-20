@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void LoadUpgradeScreen() {
+        AudioSource.PlayClipAtPoint(endOfDayJingle, transform.position);
         LevelLoader ll = FindObjectOfType<LevelLoader>();
         ll.LoadUpgradeScreen();
     }
@@ -126,6 +127,10 @@ public class GameManager : MonoBehaviour {
         money = 0;
         dayTimer = 0;
         dayNumber = 0;
+        fasterWalkUpgradeUnlocked = false;
+        biggerSauceUpgradeUnlocked = false;
+        biggerCheeseUpgradeUnlocked = false;
+        biggerToppingsUpgradeUnlocked = false;
     }
 
     public void UpdateMoney(int value) {

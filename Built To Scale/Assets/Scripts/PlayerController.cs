@@ -42,31 +42,33 @@ public class PlayerController : MonoBehaviour {
         if (currentIngredientSource != null && pizza != null) {
             if (pizza.GetCheeseDone() && currentIngredientSource.GetIngredientType() == PizzaMode.Toppings) {
                 pizzaMode = PizzaMode.Toppings;
-                cheeseDropper.ToggleDroppingCheese();
-                toppingDropper.ToggleDroppingToppings();
+                cheeseDropper.ToggleDroppingCheese(false);
+                toppingDropper.ToggleDroppingToppings(true);
                 cheeseBag.SetActive(false);
                 pepperoniBag.SetActive(true);
             } else if (pizza.GetSauceDone() && currentIngredientSource.GetIngredientType() == PizzaMode.Cheese) {
                 pizzaMode = PizzaMode.Cheese;
-                sauceDropper.ToggleDroppingSauce();
-                cheeseDropper.ToggleDroppingCheese();
+                sauceDropper.ToggleDroppingSauce(false);
+                cheeseDropper.ToggleDroppingCheese(true);
                 brush.SetActive(false);
                 cheeseBag.SetActive(true);
             } else if (!pizza.GetSauceDone() && currentIngredientSource.GetIngredientType() == PizzaMode.Sauce) {
                 pizzaMode = PizzaMode.Sauce;
-                sauceDropper.ToggleDroppingSauce();
+                sauceDropper.ToggleDroppingSauce(true);
                 pepperoniBag.SetActive(false);
                 brush.SetActive(true);
             }
             AudioSource.PlayClipAtPoint(switchingSound, transform.position);
+            animator.SetTrigger("Switching");
         }
 
         if (finishPizzaButton != null && pizza != null && pizza.GetToppingsDone()) {
             GameManager.instance.UpdateMoney(moneyPerPizza);
             AudioSource.PlayClipAtPoint(buttonPush, transform.position);
-            toppingDropper.ToggleDroppingToppings();
-            Destroy(pizza.gameObject);
-            Instantiate(blankPizza, new Vector3(0,0.85f,0), Quaternion.identity);
+            toppingDropper.ToggleDroppingToppings(false);
+            pizza.GetComponent<Animator>().SetTrigger("Finish");
+            Destroy(pizza.gameObject, 0.75f);
+            Instantiate(blankPizza, new Vector3(0,-13,0), Quaternion.identity);
             GameManager.instance.UpdateTutorialText(PizzaMode.Sauce, 0);
         }
     }

@@ -48,8 +48,8 @@ public class ToppingDropper : MonoBehaviour {
         currentPizza = pizza;
     }
 
-    public void ToggleDroppingToppings() {
-        isDroppingToppings = !isDroppingToppings;
+    public void ToggleDroppingToppings(bool value) {
+        isDroppingToppings = value;
         Debug.Log("Toggled Toppings to " + isDroppingToppings);
     }
 }

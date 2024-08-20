@@ -513,7 +513,7 @@ MonoBehaviour:
   brush: {fileID: 5405097425903971338}
   cheeseBag: {fileID: 3066762789870682905}
   pepperoniBag: {fileID: 7362581563525306377}
-  switchingSound: {fileID: 0}
+  switchingSound: {fileID: 8300000, guid: 0ca9339342d742849936a4ff59f51df6, type: 3}
   buttonPush: {fileID: 8300000, guid: ea0a1f87fc5a3dd4ab44a8a9e8909c5b, type: 3}
   pizzaMode: 0
 --- !u!114 &5073458293085570865

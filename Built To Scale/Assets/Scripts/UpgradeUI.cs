@@ -13,12 +13,17 @@ public class UpgradeUI : MonoBehaviour {
     }
 
     public void CheckButtonsValidity() {
-        if (GameManager.instance.GetMoney() < 100) {
+        if (GameManager.instance.GetMoney() < 250) {
             upgrade1.interactable = false;
             upgrade2.interactable = false;
             upgrade3.interactable = false;
             upgrade4.interactable = false;
             return;
+        } else if (GameManager.instance.GetMoney() >= 250 && GameManager.instance.GetMoney() < 350) {
+            upgrade1.interactable = true;
+            upgrade2.interactable = false;
+            upgrade3.interactable = false;
+            upgrade4.interactable = false;
         } else {
             upgrade1.interactable = true;
             upgrade2.interactable = true;
@@ -38,5 +43,26 @@ public class UpgradeUI : MonoBehaviour {
         if (GameManager.instance.GetBiggerToppingsUnlock()) {
             upgrade4.interactable = false;
         }
+    }
+
+
+    public void PurchaseUpgrade1() {
+        GameManager.instance.SetFasterWalkUnlock(true);
+        GameManager.instance.UpdateMoney(-250);
+    }
+    
+    public void PurchaseUpgrade2() {
+        GameManager.instance.SetBiggerSauceUnlock(true);
+        GameManager.instance.UpdateMoney(-350);
+    }
+
+    public void PurchaseUpgrade3() {
+        GameManager.instance.SetBiggerCheeseUnlock(true);
+        GameManager.instance.UpdateMoney(-350);
+    }
+
+    public void PurchaseUpgrade4() {
+        GameManager.instance.SetBiggerToppingsUnlock(true);
+        GameManager.instance.UpdateMoney(-350);
     }
 }

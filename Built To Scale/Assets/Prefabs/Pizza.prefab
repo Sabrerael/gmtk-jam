@@ -3947,6 +3947,7 @@ GameObject:
   - component: {fileID: 2003410878515681149}
   - component: {fileID: 2839349549539032039}
   - component: {fileID: 6491592474400919478}
+  - component: {fileID: 3131828956554899558}
   m_Layer: 0
   m_Name: Pizza
   m_TagString: Pizza
@@ -4024,6 +4025,27 @@ MonoBehaviour:
   sauceLayerTransform: {fileID: 6620175705900536179}
   cheeseLayerTransform: {fileID: 7035158804093970019}
   toppingsLayerTransform: {fileID: 8739630329842105946}
+--- !u!95 &3131828956554899558
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218478291579543379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3821010bcb3ecb240b44ba747d831c3f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3225777796315022496
 GameObject:
   m_ObjectHideFlags: 0
